@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TACTICAL FLEET | WAYNE ENTERPRISES DOSSIER</title>
+
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* RESET & FULLSCREEN STAGE LOCK */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden !important;
+      background-color: #050505;
+      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* PERFECT SINGLE LINE NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 9999;
+      background: rgba(5, 5, 5, 0.85);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(229, 184, 11, 0.3);
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #ffffff;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: 1.2rem;
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: #000;
+      border: 1px solid #e5b80b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e5b80b;
+      box-shadow: 0 0 12px rgba(229, 184, 11, 0.25);
+    }
+
+    .logo-text { letter-spacing: 2px; }
+    .logo-text span { color: #e5b80b; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #a0a5b5;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: color 0.3s ease;
+      position: relative;
+      padding: 5px 0;
+    }
+
+    .nav-links a:hover, 
+    .nav-links a.active {
+      color: #e5b80b;
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #e5b80b;
+      box-shadow: 0 0 8px #e5b80b;
+    }
+
+    .header-actions { display: flex; align-items: center; }
+
+    .cta-btn {
+      padding: 8px 20px;
+      border-radius: 30px;
+      background: #e5b80b;
+      color: #000;
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(229, 184, 11, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: #ffd700;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+      transform: translateY(-2px);
+    }
+
+    /* SPLIT SLIDER CONTAINER */
+    .slider-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* LEFT SLIDE (TEXT DOSSIER) */
+    .left-slide {
+      height: 100%;
+      width: 40%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+      z-index: 10;
+    }
+
+    .left-slide > div {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      padding: 0 10%;
+    }
+
+    .left-slide h1 {
+      font-size: 2.3rem;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+      font-weight: 900;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.9);
+    }
+
+    .left-slide p {
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+
+    .left-slide button {
+      padding: 12px 28px;
+      border: 1px solid #e5b80b;
+      background: rgba(0, 0, 0, 0.6);
+      color: #e5b80b;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 30px;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+    }
+
+    .left-slide button:hover {
+      background: #e5b80b;
+      color: #000;
+      box-shadow: 0 0 20px rgba(229, 184, 11, 0.6);
+    }
+
+    /* RIGHT SLIDE (WALLPAPERS) */
+    .right-slide {
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 40%;
+      width: 60%;
+      transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .right-slide > div {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      height: 100%;
+      width: 100%;
+    }
+
+    /* FIXED NAVIGATION BUTTONS */
+    .action-buttons {
+      position: fixed;
+      left: 40%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 9999;
+      pointer-events: auto;
+    }
+
+    .action-buttons button {
+      position: absolute;
+      background-color: #ffffff;
+      border: none;
+      color: #111111;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 16px;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    .action-buttons button:hover {
+      background-color: #e5b80b;
+      color: #000000;
+      box-shadow: 0 0 20px rgba(229, 184, 11, 0.8);
+    }
+
+    .action-buttons .down-button {
+      transform: translateX(-100%) translateY(-50%);
+      border-radius: 40px 0 0 40px;
+    }
+
+    .action-buttons .up-button {
+      transform: translateY(-50%);
+      border-radius: 0 40px 40px 0;
+    }
+
+    /* MOBILE ADAPTATION */
+    @media screen and (max-width: 768px) {
+      .navbar { padding: 12px 15px; }
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 0.7rem; }
+      .desktop-only { display: none !important; }
+
+      .left-slide { width: 100%; }
+      .left-slide > div {
+        padding: 0 8%;
+        background-color: rgba(5, 5, 5, 0.82) !important;
+        backdrop-filter: blur(4px);
+      }
+
+      .right-slide { width: 100%; left: 0; }
+      .left-slide h1 { font-size: 1.8rem; }
+      .left-slide p { font-size: 0.75rem; }
+
+      .action-buttons { left: 50%; }
+      .action-buttons button { padding: 12px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+     <div class="logo-icon">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M12,6 C13.5,3.5 16,3 18,4.5 C20,6 22,9 22,12 C19.5,10.5 17.5,12 16,14 C15,12.5 13.5,11.5 12,11.5 C10.5,11.5 9,12.5 8,14 C6.5,12 4.5,10.5 2,12 C2,9 4,6 6,4.5 C8,3 10.5,3.5 12,6 Z" />
+        </svg>
+      </div>
+      <span class="logo-text">WAYNE <span>ENT</span></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="batcave.html">Bat Cave</a>
+      <a href="supes.html">Heroes</a>
+      <a href="villen.html" ">Gunde</a>
+      <a href="vehicles.html" class="active">Vehicles</a>
+      <a href="timeline.html">Chronicles</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="index.html#contact" class="cta-btn desktop-only">ACCESS BATCOMPUTER</a>
+    </div>
+  </header>
+
+  <!-- SPLIT SLIDER CONTAINER -->
+  <div class="slider-container">
+    
+    <!-- LEFT CONTENT SLIDE (Reversed for reverse-stacking sync: Tumbler will load FIRST) -->
+    <div class="left-slide">
+
+      <!-- 8. The Bat-Submarine -->
+      <div style="background-color: #064e3b;">
+        <h1>🌊 𝕋𝕙𝕖 𝔹𝕒𝕥-𝕊𝕦𝕓 🌊</h1>
+        <p>Deep-sea stealth sub-mersible engineered for underwater surveillance in Gotham Harbor. Features silent hydro-propulsion and torpedo countermeasures. 🛥️🌊</p>
+        <button onclick="alert('LEVEL 9 CLEARANCE: NAVAL SPECS UNLOCKED')">VIEW BLUEPRINTS</button>
+      </div>
+
+      <!-- 7. The Batboat -->
+      <div style="background-color: #1e3a8a;">
+        <h1>🚤 𝕋𝕙𝕖 𝔹𝕒𝕥𝕓𝕠𝕒𝕥 🚤</h1>
+        <p>Ultra-high speed hydrofoil assault boat designed for river chases. Armed with sonic depth charges and retractable armor plates. ⚡🌊</p>
+        <button onclick="alert('LEVEL 9 CLEARANCE: NAVAL SPECS UNLOCKED')">VIEW BLUEPRINTS</button>
+      </div>
+
+      <!-- 6. The Bat / VTOL Aerial -->
+      <div style="background-color: #27272a;">
+        <h1>🚁 𝕋𝕙𝕖 𝔹𝕒𝕥 (𝕍𝕋𝕆𝕃) 🚁</h1>
+        <p>Dual-rotor vertical takeoff aircraft built for narrow urban canyons. Highly maneuverable aerial platform with EMP weapon arrays. 🌪️🏙️</p>
+        <button onclick="alert('LEVEL 10 CLEARANCE: AERIAL SPECS UNLOCKED')">VIEW BLUEPRINTS</button>
+      </div>
+
+      <!-- 5. Arkham Knight Bat-Tank -->
+      <div style="background-color: #312e81;">
+        <h1>🛡️ 𝔹𝕒𝕥-𝕋𝕒𝕟𝕜 (𝔸𝕣𝕜𝕙𝕒𝕞) 🛡️</h1>
+        <p>Heavy tactical battle tank with 360-degree omni-directional wheels, non-lethal riot control cannons, and EMP blast shields. 💣🛡️</p>
+
+        <button onclick="alert('LEVEL 10 CLEARANCE: HEAVY SPECS UNLOCKED')">VIEW BLUEPRINTS</button>
+      </div>
+
+      <!-- 4. Muscle Batmobile (2022) -->
+      <div style="background-color: #451a03;">
+        <h1>🔥 𝕄𝕦𝕤𝕔𝕝𝕖 𝔹𝕒𝕥𝕞𝕠𝕓𝕚𝕝𝕖 🔥</h1>
+        <p>Modified heavy muscle car equipped with a rear jet-afterburner, steel ramming bumpers, and raw speed built for relentless urban pursuits. 🏎️💨</p>
+        <button onclick="alert('LEVEL 8 CLEARANCE: R&D SPECS UNLOCKED')">VIEW BLUEPRINTS</button>
+      </div>
+
+      <!-- 3. The Batpod / Batcycle -->
+      <div style="background-color: #881337;">
+        <h1>🏍️ 𝕋𝕙𝕖 𝔹𝕒𝕥𝕡𝕠𝕕 🏍️</h1>
+        <p>Heavy dual-wheel tactical motorcycle capable of 360-degree wheel rotations. Features dual grappling hooks and cannon mounts. ⚡💨</p>
+        <button onclick="alert('LEVEL 8 CLEARANCE: R&D SPECS UNLOCKED')">VIEW BLUEPRINTS</button>
+      </div>
+
+      <!-- 2. The Batwing -->
+      <div style="background-color: #14532d;">
+        <h1>🦇 𝕋𝕙𝕖 𝔹𝕒𝕥𝕨𝕚𝕟𝕘 🦇</h1>
+        <p>Supersonic stealth airframe modeled after the Bat symbol. Equipped with active radar dampening and high-altitude surveillance HUD. ✈️🌌</p>
+        <button onclick="alert('LEVEL 10 CLEARANCE: AERIAL SPECS UNLOCKED')">VIEW BLUEPRINTS</button>
+      </div>
+
+      <!-- 1. The Tumbler (Sabse Pehle Load Hoga!) -->
+      <div style="background-color: #0f172a;">
+        <h1>🚜 𝕋𝕙𝕖 "𝕋𝕦𝕞𝕓𝕝𝕖𝕣" 🚜</h1>
+        <p>Military prototype urban assault tank with a 5.0L jet engine. Built for gap-jumping without bridges and heavy stealth armor plating. 🚀🛡️</p>
+        <button onclick="alert('LEVEL 10 CLEARANCE: TUMBLER SPECS UNLOCKED')">VIEW BLUEPRINTS</button>
+      </div>
+
+    </div>
+
+    <!-- RIGHT IMAGE SLIDE (Wallpapers) -->
+    <div class="right-slide">
+      <div style="background-image: url('https://wallpaperaccess.com/full/1426133.jpg');"></div>
+      <div style="background-image: url('https://wallpaperaccess.com/full/7496630.jpg');"></div>
+      <div style="background-image: url('https://wallpaperaccess.com/full/12069118.jpg');"></div>
+      <div style="background-image: url('https://wallpaperaccess.com/full/1166231.jpg');"></div>
+      <div style="background-image: url('download\ \(5\).jpg');"></div>
+      <div style="background-image: url('download\ \(6\).jpg');"></div>
+      <div style="background-image: url('Bat\ boat.jpg');"></div>
+      <div style="background-image: url('download\ \(7\).jpg');"></div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION BUTTONS -->
+  <div class="action-buttons">
+    <button class="down-button"><i class="fas fa-arrow-down"></i></button>
+    <button class="up-button"><i class="fas fa-arrow-up"></i></button>
+  </div>
+
+  <!-- EMBEDDED JAVASCRIPT ENGINE -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sliderContainer = document.querySelector('.slider-container');
+      const slideRight = document.querySelector('.right-slide');
+      const slideLeft = document.querySelector('.left-slide');
+      const upButton = document.querySelector('.up-button');
+      const downButton = document.querySelector('.down-button');
+      const slidesLength = slideRight.querySelectorAll('div').length;
+
+      let activeSlideIndex = 0;
+      let isScrolling = false;
+
+      // Invert left slide position for reverse sync
+      slideLeft.style.top = `-${(slidesLength - 1) * 100}vh`;
+
+      const changeSlide = (direction) => {
+        const sliderHeight = sliderContainer.clientHeight;
+        if (direction === 'up') {
+          activeSlideIndex++;
+          if (activeSlideIndex > slidesLength - 1) activeSlideIndex = 0;
+        } else if (direction === 'down') {
+          activeSlideIndex--;
+          if (activeSlideIndex < 0) activeSlideIndex = slidesLength - 1;
+        }
+
+        slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`;
+        slideLeft.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`;
+      };
+
+      upButton.addEventListener('click', () => changeSlide('up'));
+      downButton.addEventListener('click', () => changeSlide('down'));
+
+      // Smooth mouse wheel scroll
+      window.addEventListener('wheel', (e) => {
+        if (isScrolling) return;
+        isScrolling = true;
+
+        if (e.deltaY > 0) {
+          changeSlide('up');
+        } else {
+          changeSlide('down');
+        }
+
+        setTimeout(() => { isScrolling = false; }, 850);
+      }, { passive: true });
+    });
+  </script>
+</body>
+</html>

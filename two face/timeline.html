@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GOTHAM CHRONICLES | BATCOMPUTER TIMELINE</title>
+
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-black: #050505;
+      --bg-card: #0d0e12;
+      --accent-gold: #e5b80b;
+      --accent-glow: rgba(229, 184, 11, 0.25);
+      --text-white: #ffffff;
+      --text-dim: #a0a5b5;
+      --border-gold: rgba(229, 184, 11, 0.3);
+      --font-title: 'Orbitron', 'Cinzel', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-black);
+      color: var(--text-white);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 9999;
+      background: rgba(5, 5, 5, 0.85);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #ffffff;
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: 1.2rem;
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: #000;
+      border: 1px solid var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-gold);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+
+    .logo-text span { color: var(--accent-gold); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent-gold);
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      display: block;
+      height: 2px;
+      background: var(--accent-gold);
+      box-shadow: 0 0 8px var(--accent-gold);
+      margin-top: 4px;
+    }
+
+    .cta-btn {
+      padding: 8px 20px;
+      border-radius: 30px;
+      background: var(--accent-gold);
+      color: #000;
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-decoration: none;
+      box-shadow: 0 0 15px var(--accent-glow);
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: #ffd700;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+    }
+
+    /* HEADER HERO BANNER */
+    .timeline-header {
+      padding: 140px 20px 40px;
+      text-align: center;
+    }
+
+    .section-tag {
+      color: var(--accent-gold);
+      font-family: var(--font-title);
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .timeline-header h1 {
+      font-family: var(--font-title);
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    .timeline-header p {
+      color: var(--text-dim);
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+    }
+
+    /* TIMELINE STAGE */
+    .timeline-stage {
+      position: relative;
+      max-width: 1000px;
+      margin: 40px auto 100px;
+      padding: 0 20px;
+    }
+
+    .timeline-center-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, var(--accent-gold), transparent);
+      transform: translateX(-50%);
+      box-shadow: 0 0 12px var(--accent-gold);
+    }
+
+    .timeline-row {
+      position: relative;
+      width: 50%;
+      padding: 25px 40px;
+    }
+
+    .left-row {
+      left: 0;
+      text-align: right;
+    }
+
+    .right-row {
+      left: 50%;
+      text-align: left;
+    }
+
+    .timeline-node {
+      position: absolute;
+      top: 35px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #000;
+      border: 3px solid var(--accent-gold);
+      box-shadow: 0 0 15px var(--accent-gold);
+      z-index: 5;
+    }
+
+    .left-row .timeline-node { right: -9px; }
+    .right-row .timeline-node { left: -9px; }
+
+    .timeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      padding: 30px;
+      border-radius: 16px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-card:hover {
+      border-color: var(--accent-gold);
+      box-shadow: 0 10px 30px var(--accent-glow);
+      transform: translateY(-50px);
+      transform: scale(1.02);
+    }
+
+    .event-era {
+      display: inline-block;
+      color: var(--accent-gold);
+      font-family: var(--font-title);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .timeline-card h3 {
+      font-family: var(--font-title);
+      font-size: 1.3rem;
+      color: var(--text-white);
+      margin-bottom: 12px;
+    }
+
+    .timeline-card p {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    .footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 30px 50px;
+      background: #000;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .timeline-header h1 { font-size: 2.2rem; }
+      .timeline-center-line { left: 20px; }
+      .timeline-row { width: 100%; padding-left: 50px; padding-right: 15px; }
+      .left-row, .right-row { left: 0; text-align: left; }
+      .left-row .timeline-node, .right-row .timeline-node { left: 11px; }
+      .navbar { padding: 12px 20px; }
+      .desktop-only { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+     <div class="logo-icon">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M12,6 C13.5,3.5 16,3 18,4.5 C20,6 22,9 22,12 C19.5,10.5 17.5,12 16,14 C15,12.5 13.5,11.5 12,11.5 C10.5,11.5 9,12.5 8,14 C6.5,12 4.5,10.5 2,12 C2,9 4,6 6,4.5 C8,3 10.5,3.5 12,6 Z" />
+        </svg>
+      </div>
+      <span class="logo-text">WAYNE <span>ENT</span></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="batcave.html">Bat Cave</a>
+      <a href="supes.html">Heroes</a>
+      <a href="villen.html" >Gunde</a>
+      <a href="vehicles.html">Vehicles</a>
+      <a href="timeline.html" class="active">Chronicles</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="index.html#contact" class="cta-btn desktop-only">ACCESS BATCOMPUTER</a>
+    </div>
+  </header>
+
+  <!-- TIMELINE HEADER -->
+  <section class="timeline-header">
+    <span class="section-tag">CLASSIFIED CHRONICLES</span>
+    <h1>GOTHAM CITY LORE TIMELINE</h1>
+    <p>A chronological sequence of major tactical crises, rogue births, and Gotham City transformations recorded in the Batcomputer mainframes.</p>
+  </section>
+
+  <!-- TIMELINE SECTION -->
+  <section class="timeline-stage">
+    <div class="timeline-center-line"></div>
+
+    <!-- ERA 1: YEAR ONE -->
+    <div class="timeline-row left-row">
+      <div class="timeline-node"></div>
+      <div class="timeline-card">
+        <span class="event-era">YEAR ONE // ORIGIN</span>
+        <h3>THE BAT IS BORN</h3>
+        <p>After a decade of global combat training, Bruce Wayne returns to a corrupt Gotham City. The Bat-Signal is illuminated for the first time, establishing a symbol of fear for crime.</p>
+      </div>
+    </div>
+
+    <!-- ERA 2: LONG HALLOWEEN -->
+    <div class="timeline-row right-row">
+      <div class="timeline-node"></div>
+      <div class="timeline-card">
+        <span class="event-era">YEAR THREE // RISE OF ROGUES</span>
+        <h3>THE LONG HALLOWEEN & TWO-FACE</h3>
+        <p>Traditional mob families collapse under the Holiday Serial Killer case. District Attorney Harvey Dent suffers an acid attack, giving birth to Two-Face and shifting Gotham into theatrical super-villainy.</p>
+      </div>
+    </div>
+
+    <!-- ERA 3: DEATH IN THE FAMILY -->
+    <div class="timeline-row left-row">
+      <div class="timeline-node"></div>
+      <div class="timeline-card">
+        <span class="event-era">YEAR FIVE // TRAGEDY</span>
+        <h3>A DEATH IN THE FAMILY</h3>
+        <p>The Joker executes a brutal ambush on Jason Todd (Robin II). The Dark Knight suffers his darkest loss, driving him into colder, harsher isolation.</p>
+      </div>
+    </div>
+
+    <!-- ERA 4: KNIGHTFALL -->
+    <div class="timeline-row right-row">
+      <div class="timeline-node"></div>
+      <div class="timeline-card">
+        <span class="event-era">YEAR SEVEN // SIEGE</span>
+        <h3>KNIGHTFALL CRISIS</h3>
+        <p>Bane orchestrates a mass Arkham Asylum breakout to exhaust Batman physically and mentally before confronting him in the Batcave and breaking the Bat.</p>
+      </div>
+    </div>
+
+    <!-- ERA 5: NO MAN'S LAND -->
+    <div class="timeline-row left-row">
+      <div class="timeline-node"></div>
+      <div class="timeline-card">
+        <span class="event-era">YEAR NINE // ISOLATION</span>
+        <h3>NO MAN'S LAND</h3>
+        <p>A cataclysmic earthquake strikes Gotham, causing the US government to declare the city uninhabitable and destroy all access bridges. Batman fights gang wars to rebuild order block by block.</p>
+      </div>
+    </div>
+
+    <!-- ERA 6: COURT OF OWLS -->
+    <div class="timeline-row right-row">
+      <div class="timeline-node"></div>
+      <div class="timeline-card">
+        <span class="event-era">PRESENT DAY // SHADOWS</span>
+        <h3>THE COURT OF OWLS</h3>
+        <p>Batman uncovers Gotham's centuries-old secret society that has ruled from the city's hidden architectures using undead assassin Talons.</p>
+      </div>
+    </div>
+
+    <!-- ERA 7: ARKHAM PROTOCOL 10 -->
+    <div class="timeline-row left-row">
+      <div class="timeline-node"></div>
+      <div class="timeline-card">
+        <span class="event-era">CURRENT // PROTOCOL 10</span>
+        <h3>ARKHAM CITY LOCKDOWN</h3>
+        <p>Gotham's slums are converted into a walled mega-prison. Batcomputer shifts into level 10 readiness mode to safeguard city borders.</p>
+      </div>
+    </div>
+
+  </section>
+
+   <!-- =========================================
+     GLOBAL CONNECT SECTION & FOOTER (Modular)
+========================================= -->
+<style>
+  .global-connect-wrapper {
+    width: 100%;
+    background: #050505;
+    border-top: 1px solid rgba(229, 184, 11, 0.3);
+    padding: 50px 20px 25px;
+    text-align: center;
+    position: relative;
+    z-index: 999;
+    font-family: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .global-connect-wrapper h3 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 800;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .global-connect-wrapper p {
+    color: #a0a5b5;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+  }
+
+  .global-social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto 35px;
+  }
+
+  .global-social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 1px solid rgba(229, 184, 11, 0.3);
+    background: #0d0e12;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .global-social-btn.github:hover { border-color: #ffffff; transform: translateY(-3px); box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); }
+  .global-social-btn.email { border-color: #e5b80b; color: #e5b80b; }
+  .global-social-btn.email:hover { background: #e5b80b; color: #000000; transform: translateY(-3px); box-shadow: 0 0 15px rgba(229, 184, 11, 0.6); }
+  .global-social-btn.youtube { border-color: #ff0000; color: #ff0000; }
+  .global-social-btn.youtube:hover { background: #ff0000; color: #ffffff; transform: translateY(-3px); box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); }
+  .global-social-btn.instagram { border-color: #e84393; color: #e84393; }
+  .global-social-btn.instagram:hover { background: #e84393; color: #ffffff; transform: translateY(-3px); box-shadow: 0 0 15px rgba(232, 67, 147, 0.6); }
+  .global-social-btn.linkedin { border-color: #0077b5; color: #0077b5; }
+  .global-social-btn.linkedin:hover { background: #0077b5; color: #ffffff; transform: translateY(-3px); box-shadow: 0 0 15px rgba(0, 119, 181, 0.6); }
+
+  .global-footer-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: #a0a5b5;
+  }
+
+  .global-footer-bar span {
+    color: #e5b80b;
+    font-weight: 700;
+  }
+</style>
+
+<div class="global-connect-wrapper" id="connect">
+  <h3>Let's Connect</h3>
+  <p>Have an idea or just want to explore my work? Feel free to connect with me.</p>
+
+  <div class="global-social-buttons">
+    <a href="https://github.com/" target="_blank" class="global-social-btn github"><i class="fa-brands fa-github"></i> GitHub</a>
+    <a href="mailto:hi@mridulandrohan.com" class="global-social-btn email"><i class="fa-regular fa-envelope"></i> Email Me</a>
+    <a href="https://youtube.com/" target="_blank" class="global-social-btn youtube"><i class="fa-brands fa-youtube"></i> YouTube</a>
+    <a href="https://www.instagram.com/mridulandrohan/?hl=en" target="_blank" class="global-social-btn instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
+    <a href="https://www.linkedin.com/company/81645502" target="_blank" class="global-social-btn linkedin"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+  </div>
+
+ <div class="global-footer-bar">
+  <p>Designed and Developed by <span style="font-weight: 900; font-size: 1.2rem; color: #e5b80b; display: inline-block; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.color='#ffd700'; this.style.textShadow='0 0 12px rgba(255, 215, 0, 0.8)'; this.style.transform='scale(1.2)';" onmouseout="this.style.color='#e5b80b'; this.style.textShadow='none'; this.style.transform='scale(1)';"> ϻ<sub style="font-size: 0.65em; position: relative; bottom: -0.1em; left: -0.05em;">𝔯 </sub>mridulandrohan</span> <i class="fa-solid fa-heart" style="color: #e84393;"></i></p>
+  <p style="margin-top: 5px;">&copy; 2026 All Rights Reserved.</p>
+</div>
+
+
+</body>
+</html>

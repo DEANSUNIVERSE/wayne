@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAYNE ENTERPRISES | THE DARK KNIGHT</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+       <div class="logo-icon"><i class="fa-brands fa-wirsindhandwerk"></i></div>
+        </a>
+        <span class="logo-text">WAYNE <span>ENT</span></span>
+
+        <nav class="nav-links">
+            <a href="#hero" class="nav-item ">Home</a>
+            <a href="#identity" class="nav-item">Identity</a>
+            <a href="#batcave" class="nav-item">Batcave Tech</a>
+            <a href="#arsenal" class="nav-item">Arsenal</a>
+            <a href="#chronicles" class="nav-item">Chronicles</a>
+        </nav>
+
+        <div class="header-actions">
+            <button id="sound-toggle" class="icon-btn" aria-label="Toggle Sound">
+                <i id="sound-icon-off" class="fa-solid fa-volume-xmark"></i>
+                <i id="sound-icon-on" class="fa-solid fa-volume-high hidden"></i>
+            </button>
+            <a href="#contact" class="cta-btn desktop-only">ACCESS BATCOMPUTER</a>
+            <button id="menu-toggle" class="icon-btn mobile-only" aria-label="Toggle Navigation Menu">
+                <i id="menu-icon" class="fa-solid fa-bars"></i>
+                <i id="close-icon" class="fa-solid fa-xmark hidden"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-drawer" class="mobile-drawer">
+        <a href="#hero" class="mobile-nav-link">01. HOME</a>
+        <a href="#identity" class="mobile-nav-link">02. DUAL IDENTITY</a>
+        <a href="#batcave" class="mobile-nav-link">03. BATCAVE TECH</a>
+        <a href="#arsenal" class="mobile-nav-link">04. ARSENAL</a>
+        <a href="#chronicles" class="mobile-nav-link">05. CHRONICLES</a>
+        <a href="#contact" class="cta-btn full-width">ACCESS BATCOMPUTER</a>
+    </div>
+
+    <!-- SECTION 1: HERO SECTION WITH SPOTLIGHT MASK REVEAL -->
+    <section id="hero" class="section hero-section">
+        <!-- Visual Image Stage -->
+        <div class="hero-image-stage">
+            <!-- Base Image: Batman -->
+            <img src="https://wallpaperaccess.com/full/12200981.jpg" alt="Batman The Dark Knight" class="hero-img base-img">
+
+            <!-- Reveal Image Layer (Illuminated Cyber Overlay) -->
+            <div id="mask-layer" class="hero-img mask-img-wrapper">
+                <img src="https://wallpaperaccess.com/full/12200657.jpg" alt="Bruce Wayne Reveal" class="hero-img reveal-img">
+            </div>
+
+            <!-- Cursor Spotlight Halo -->
+            <div id="spotlight-halo" class="spotlight-halo"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <div class="badge-pill">
+                <span class="dot pulse"></span>
+                <span>GOTHAM CITY DEFENSE SYSTEM</span>
+            </div>
+            <h1 class="hero-title">I AM THE<br><span class="highlight">NIGHT</span></h1>
+            <p class="hero-subtitle">
+                Beyond the billionaire philanthropist lies Gotham's ultimate guardian. Move your cursor to pierce the darkness.
+            </p>
+            <div class="hero-actions">
+                <a href="villen.html" class="btn btn-primary">
+                    <span>Explore Criminals</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="supes.html" class="btn btn-secondary">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Gotham's Protectors</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <span>SCROLL FOR REVEAL</span>
+            <div class="mouse-icon">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: DUAL IDENTITY (BRUCE WAYNE SCROLL REVEAL) -->
+    <section id="identity" class="section identity-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">DUAL EXISTENCE</span>
+                <h2>BRUCE WAYNE VS BATMAN</h2>
+                <p>As you scroll through Gotham's shadows, the mask slips to reveal the man beneath.</p>
+            </div>
+
+            <div class="identity-stage" id="identity-stage">
+                <div class="identity-card batman-card">
+                    <div class="card-bg" style="background-image: url('https://wallpaperaccess.com/full/8505587.jpg');"></div>
+                    <div class="card-content">
+                        <h3>THE DARK KNIGHT</h3>
+                        <p>Vigilante of Gotham City, symbol of fear for criminals, equipped with cutting-edge tech and unbreakable resolve.</p>
+                        <ul class="stats-list">
+                            <li><span>Alias:</span> Batman</li>
+                            <li><span>Base:</span> Batcave</li>
+                            <li><span>Tactical Suit:</span> Kevlar-Titanium Weave</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="identity-card wayne-card">
+                    <div class="card-bg" style="background-image: url('https://wallpaperaccess.com/full/12199774.jpg');"></div>
+                    <div class="card-content">
+                        <h3>BRUCE WAYNE</h3>
+                        <p>Billionaire CEO of Wayne Enterprises, philanthropist, living a dual life to fund the war on Gotham's underworld.</p>
+                        <ul class="stats-list">
+                            <li><span>Position:</span> CEO, Wayne Enterprises</li>
+                            <li><span>Net Worth:</span> $11.6 Billion</li>
+                            <li><span>Public Image:</span> High Society Playboy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+ <!-- SECTION 3:  (Batcave, Batmobile) -->
+            <!-- 2. VEHICLES & BATMOBILE SHOWCASE -->
+            <div id = "batcave" class="section-header text-center" style="margin-top: 100px;">
+                <span class="section-tag">TACTICAL ARSENAL</span>
+                <h2>TACTICAL VEHICLES & CAVE UNITS</h2>
+            </div>
+
+            <div class="grid grid-2">
+                <div class="tech-card vehicle-card">
+                    <div class="img-wrapper large-img">
+                        <img src="batmobile.jpg" alt="Batmobile Tumbler">
+                        <div class="img-overlay">
+                            <h3>BATMOBILE "TUMBLER"</h3>
+                            <p>Rush Drive, Without AirBags</p>
+                            <!-- Naya Link Button -->
+                            <a href="vehicles.html" class="card-link-btn">VIEW AUTO <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tech-card vehicle-card">
+                    <div class="img-wrapper large-img">
+                        <img src="batcave.jpg" alt="The Batwing">
+                        <div class="img-overlay">
+                            <h3>THE BATCAVE</h3>
+                            <p>FIND HOPE IN DARK</p>
+                            <a href="batcave.html" class="card-link-btn">VIEW SPECS <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. GOTHAM CHRONICLES (INTERACTIVE TIMELINE) -->
+            <div id = "chronicles" class="section-header text-center" style="margin-top: 120px;">
+                <span class="section-tag">CLASSIFIED LORE</span>
+                <h2>GOTHAM CITY CHRONICLES</h2>
+                <p>Major tactical events and crisis files recorded in the Batcomputer mainframes.</p>
+                <!-- Full Timeline Redirect Button -->
+                <a href="timeline.html" class="btn btn-secondary" style="margin-top: 15px;">
+                    <i class="fa-solid fa-clock-rotate-left"></i> OPEN FULL TIMELINE ARCHIVE
+                </a>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item left-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">YEAR ONE</span>
+                        <h3>THE BAT IS BORN</h3>
+                        <p>Bruce Wayne returns to Gotham after years of global training. The Bat-Signal is lit for the first time as corruption is challenged.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">YEAR THREE</span>
+                        <h3>THE LONG HALLOWEEN</h3>
+                        <p>Mob wars crumble and Gotham's theatrical Rogues rise. Harvey Dent falls, transforming into the tragic villain Two-Face.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">YEAR SEVEN</span>
+                        <h3>KNIGHTFALL CRISIS</h3>
+                        <p>Bane executes an Arkham Asylum breakout, orchestrating maximum chaos before confronting Batman in the Batcave.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">PRESENT DAY</span>
+                        <h3>ARKHAM CITY LOCKDOWN</h3>
+                        <p>Gotham is converted into a mega-prison facility. Batcomputer operates on Protocol 10 readiness mode.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 4: ARSENAL -->
+    <section id="arsenal" class="section arsenal-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">TACTICAL EQUIPMENT</span>
+                <h2>GOTHAM ARSENAL</h2>
+            </div>
+
+            <div class="grid grid-2">
+                <div class="arsenal-item">
+                    <div class="arsenal-badge">PRIMARY WEAPON</div>
+                    <h3>Batarang Array</h3>
+                    <p>High-density custom titanium alloy batarangs featuring electro-shock, sonic disruption, and remote explosive variants.</p>
+                </div>
+                <div class="arsenal-item">
+                    <div class="arsenal-badge">MOBILITY</div>
+                    <h3>Grapnel Gun</h3>
+                    <p>Gas-powered magnetic line launcher capable of lifting up to 800 lbs vertically at high speeds for rapid rooftop ascent.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+     SECTION 5: HIGH-TECH BAT-SIGNAL TERMINAL
+========================================= -->
+<section id="contact" class="section contact-section">
+    <div class="container text-center">
+        
+        <div class="contact-box terminal-contact-box">
+            
+            <!-- CYBER TERMINAL HEADER -->
+            <div class="terminal-bar">
+                <div class="terminal-dots">
+                    <span class="dot-red"></span>
+                    <span class="dot-yellow"></span>
+                    <span class="dot-green"></span>
+                </div>
+                <span class="terminal-id">FREQUENCY: 88.4 MHz // BAT-SIGNAL LINK</span>
+            </div>
+
+            <div class="contact-inner">
+                <span class="section-tag pulse-tag"><i class="fa-solid fa-satellite-dish"></i> ENCRYPTED UPLINK</span>
+                <h2 class="glitch-title">ACTIVATE THE BAT-SIGNAL</h2>
+                <p class="contact-desc">Direct emergency beacon to Commissioner Gordon's hotline & Batcave Terminal.</p>
+
+                <!-- LIVE SIGNAL STATUS MONITOR -->
+                <div class="signal-status-bar">
+                    <div class="status-item">
+                        <span>SIGNAL STATUS:</span>
+                        <strong id="signal-state">IDLE 🟢</strong>
+                    </div>
+                    <div class="status-item desktop-only">
+                        <span>ENCRYPTION:</span>
+                        <strong>AES-256 BIT 🔒</strong>
+                    </div>
+                </div>
+
+                <!-- WEB3FORMS CREATIVE FORM -->
+                <form class="contact-form bat-terminal-form" action="https://api.web3forms.com/submit" method="POST">
+                    
+                    <!-- Web3Forms Config -->
+                    <input type="hidden" name="access_key" value="a07b3cfd-5aa1-421c-8665-05927ae26b0d">
+                    <input type="hidden" name="subject" value="🚨 BAT-SIGNAL ACTIVATED: Gotham Emergency Alert">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                    <div class="form-grid">
+                        <div class="form-group cyber-input-wrapper">
+                            <i class="fa-solid fa-user-shield input-icon"></i>
+                            <input type="text" name="name" placeholder="CALL SIGN / ALIAS" required>
+                            <span class="input-glow"></span>
+                        </div>
+
+                        <div class="form-group cyber-input-wrapper">
+                            <i class="fa-solid fa-tower-cell input-icon"></i>
+                            <input type="email" name="email" placeholder="ENCRYPTED FREQUENCY (EMAIL)" required>
+                            <span class="input-glow"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group cyber-input-wrapper">
+                        <i class="fa-solid fa-terminal input-icon textarea-icon"></i>
+                        <textarea name="message" rows="4" placeholder="TRANSMIT DISTRESS DETAILS / GOTHAM COORDINATES..." required></textarea>
+                        <span class="input-glow"></span>
+                    </div>
+
+                    <!-- HIGH-TECH SUBMIT BUTTON -->
+                    <button type="submit" class="cta-btn full-width signal-btn">
+                        <div class="btn-content">
+                            <i class="fa-solid fa-bolt-lightning"></i>
+                            <span>TRANSMIT BAT-SIGNAL</span>
+                        </div>
+                        <div class="btn-laser"></div>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+   <!-- =========================================
+     GLOBAL CONNECT SECTION & FOOTER (Modular)
+========================================= -->
+<style>
+  .global-connect-wrapper {
+    width: 100%;
+    background: #050505;
+    border-top: 1px solid rgba(229, 184, 11, 0.3);
+    padding: 50px 20px 25px;
+    text-align: center;
+    position: relative;
+    z-index: 999;
+    font-family: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .global-connect-wrapper h3 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 800;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .global-connect-wrapper p {
+    color: #a0a5b5;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+  }
+
+  .global-social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto 35px;
+  }
+
+  .global-social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 1px solid rgba(229, 184, 11, 0.3);
+    background: #0d0e12;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .global-social-btn.github:hover { border-color: #ffffff; transform: translateY(-3px); box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); }
+  .global-social-btn.email { border-color: #e5b80b; color: #e5b80b; }
+  .global-social-btn.email:hover { background: #e5b80b; color: #000000; transform: translateY(-3px); box-shadow: 0 0 15px rgba(229, 184, 11, 0.6); }
+  .global-social-btn.youtube { border-color: #ff0000; color: #ff0000; }
+  .global-social-btn.youtube:hover { background: #ff0000; color: #ffffff; transform: translateY(-3px); box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); }
+  .global-social-btn.instagram { border-color: #e84393; color: #e84393; }
+  .global-social-btn.instagram:hover { background: #e84393; color: #ffffff; transform: translateY(-3px); box-shadow: 0 0 15px rgba(232, 67, 147, 0.6); }
+  .global-social-btn.linkedin { border-color: #0077b5; color: #0077b5; }
+  .global-social-btn.linkedin:hover { background: #0077b5; color: #ffffff; transform: translateY(-3px); box-shadow: 0 0 15px rgba(0, 119, 181, 0.6); }
+
+  .global-footer-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: #a0a5b5;
+  }
+
+  .global-footer-bar span {
+    color: #e5b80b;
+    font-weight: 700;
+  }
+</style>
+
+<div class="global-connect-wrapper" id="connect">
+  <h3>Let's Connect</h3>
+  <p>Have an idea or just want to explore my work? Feel free to connect with me.</p>
+
+  <div class="global-social-buttons">
+    <a href="https://github.com/" target="_blank" class="global-social-btn github"><i class="fa-brands fa-github"></i> GitHub</a>
+    <a href="mailto:hi@mridulandrohan.com" class="global-social-btn email"><i class="fa-regular fa-envelope"></i> Email Me</a>
+    <a href="https://youtube.com/" target="_blank" class="global-social-btn youtube"><i class="fa-brands fa-youtube"></i> YouTube</a>
+    <a href="https://www.instagram.com/mridulandrohan/?hl=en" target="_blank" class="global-social-btn instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
+    <a href="https://www.linkedin.com/company/81645502" target="_blank" class="global-social-btn linkedin"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+  </div>
+
+ <div class="global-footer-bar">
+  <p>Designed and Developed by <span style="font-weight: 900; font-size: 1.2rem; color: #e5b80b; display: inline-block; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.color='#ffd700'; this.style.textShadow='0 0 12px rgba(255, 215, 0, 0.8)'; this.style.transform='scale(1.2)';" onmouseout="this.style.color='#e5b80b'; this.style.textShadow='none'; this.style.transform='scale(1)';"> ϻ<sub style="font-size: 0.65em; position: relative; bottom: -0.1em; left: -0.05em;">𝔯 </sub>mridulandrohan</span> <i class="fa-solid fa-heart" style="color: #e84393;"></i></p>
+  <p style="margin-top: 5px;">&copy; 2026 All Rights Reserved.</p>
+</div>
+
+
+
+    <!-- External Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>

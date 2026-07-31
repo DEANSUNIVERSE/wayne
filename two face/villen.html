@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROGUES GALLERY | WAYNE ENTERPRISES DOSSIER</title>
+
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* RESET & FULLSCREEN STAGE LOCK */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden !important;
+      background-color: #050505;
+      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* PERFECT SINGLE LINE NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 9999;
+      background: rgba(5, 5, 5, 0.85);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(229, 184, 11, 0.3);
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #ffffff;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: 1.2rem;
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: #000;
+      border: 1px solid #e5b80b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e5b80b;
+      box-shadow: 0 0 12px rgba(229, 184, 11, 0.25);
+    }
+
+    .logo-text { letter-spacing: 2px; }
+    .logo-text span { color: #e5b80b; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #a0a5b5;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: color 0.3s ease;
+      position: relative;
+      padding: 5px 0;
+    }
+
+    .nav-links a:hover, 
+    .nav-links a.active {
+      color: #e5b80b;
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #e5b80b;
+      box-shadow: 0 0 8px #e5b80b;
+    }
+
+    .header-actions { display: flex; align-items: center; }
+
+    .cta-btn {
+      padding: 8px 20px;
+      border-radius: 30px;
+      background: #e5b80b;
+      color: #000;
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(229, 184, 11, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: #ffd700;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+      transform: translateY(-2px);
+    }
+
+    /* SPLIT SLIDER CONTAINER */
+    .slider-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* LEFT SLIDE (TEXT DOSSIER) */
+    .left-slide {
+      height: 100%;
+      width: 40%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+      z-index: 10;
+    }
+
+    .left-slide > div {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      padding: 0 10%;
+    }
+
+    .left-slide h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      letter-spacing: 3px;
+      font-weight: 900;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.9);
+    }
+
+    .left-slide p {
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .left-slide button {
+      padding: 12px 28px;
+      border: 1px solid #e5b80b;
+      background: rgba(0, 0, 0, 0.6);
+      color: #e5b80b;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 30px;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+    }
+
+    .left-slide button:hover {
+      background: #e5b80b;
+      color: #000;
+      box-shadow: 0 0 20px rgba(229, 184, 11, 0.6);
+    }
+
+    /* RIGHT SLIDE (WALLPAPERS) */
+    .right-slide {
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 40%;
+      width: 60%;
+      transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .right-slide > div {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      height: 100%;
+      width: 100%;
+    }
+
+    /* FIXED NAVIGATION BUTTONS */
+    .action-buttons {
+      position: fixed;
+      left: 40%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 9999;
+      pointer-events: auto;
+    }
+
+    .action-buttons button {
+      position: absolute;
+      background-color: #ffffff;
+      border: none;
+      color: #111111;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 16px;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    .action-buttons button:hover {
+      background-color: #e5b80b;
+      color: #000000;
+      box-shadow: 0 0 20px rgba(229, 184, 11, 0.8);
+    }
+
+    .action-buttons .down-button {
+      transform: translateX(-100%) translateY(-50%);
+      border-radius: 40px 0 0 40px;
+    }
+
+    .action-buttons .up-button {
+      transform: translateY(-50%);
+      border-radius: 0 40px 40px 0;
+    }
+
+    /* MOBILE ADAPTATION */
+    @media screen and (max-width: 768px) {
+      .navbar { padding: 12px 15px; }
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 0.7rem; }
+      .desktop-only { display: none !important; }
+
+      .left-slide { width: 100%; }
+      .left-slide > div {
+        padding: 0 8%;
+        background-color: rgba(5, 5, 5, 0.82) !important;
+        backdrop-filter: blur(4px);
+      }
+
+      .right-slide { width: 100%; left: 0; }
+      .left-slide h1 { font-size: 1.8rem; }
+      .left-slide p { font-size: 0.75rem; }
+
+      .action-buttons { left: 50%; }
+      .action-buttons button { padding: 12px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+     <div class="logo-icon">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M12,6 C13.5,3.5 16,3 18,4.5 C20,6 22,9 22,12 C19.5,10.5 17.5,12 16,14 C15,12.5 13.5,11.5 12,11.5 C10.5,11.5 9,12.5 8,14 C6.5,12 4.5,10.5 2,12 C2,9 4,6 6,4.5 C8,3 10.5,3.5 12,6 Z" />
+        </svg>
+      </div>
+      <span class="logo-text">WAYNE <span>ENT</span></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="batcave.html">Bat Cave</a>
+      <a href="supes.html">Heroes</a>
+      <a href="villen.html" class="active">Gunde</a>
+      <a href="vehicles.html">Vehicles</a>
+      <a href="timeline.html">Chronicles</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="index.html#contact" class="cta-btn desktop-only">ACCESS BATCOMPUTER</a>
+    </div>
+  </header>
+
+  <!-- SPLIT SLIDER CONTAINER -->
+  <div class="slider-container">
+    
+    <!-- LEFT CONTENT SLIDE (Bottom-to-Top Order so Joker loads FIRST with 1st Image) -->
+    <div class="left-slide">
+
+      <!-- 9. Harley Quinn -->
+      <div style="background-color: #831843;">
+        <h1>♦️ ℍ𝕒𝕣𝕝𝕖𝕪 ℚ𝕦𝕚𝕟𝕟 ♦️</h1>
+        <p>Former Arkham Asylum psychiatrist Dr. Harleen Quinzel turned unpredictable anti-hero. Armed with a giant sledgehammer and chaotic acrobatics. 🔨💖</p>
+        <button onclick="alert('LEVEL 10 SECURITY CLEARANCE REQUIRED')">VIEW DOSSIER</button>
+      </div>
+
+      <!-- 8. Scarecrow -->
+      <div style="background-color: #2e1005;">
+        <h1>🎃 𝕊𝕔𝕒𝕣𝕖ℂ𝕣𝕠𝕨 🎃</h1>
+        <p>Dr. Jonathan Crane is a disgraced psychologist who weaponizes fear itself. Using Fear Toxin, he forces his victims to experience nightmare phobias. 🧪☠️</p>
+        <button onclick="alert('LEVEL 10 SECURITY CLEARANCE REQUIRED')">VIEW DOSSIER</button>
+      </div>
+
+      <!-- 7. Two-Face -->
+      <div style="background-color: #311212;">
+        <h1>🪙 𝕋𝕨𝕠-𝔽𝕒𝕔𝕖 🪙</h1>
+        <p>Former Gotham District Attorney Harvey Dent, driven insane after an acid attack scarred half his face. Leaves every life-or-death decision to a coin flip. 🌓⚖️</p>
+        <button onclick="alert('LEVEL 10 SECURITY CLEARANCE REQUIRED')">VIEW DOSSIER</button>
+      </div>
+
+      <!-- 6. Ra's al Ghul -->
+      <div style="background-color: #451a03;">
+        <h1>⚔️ ℝ𝕒'𝕤 𝕒𝕝 𝔾𝕙𝕦𝕝 ⚔️</h1>
+        <p>The centuries-old leader of the League of Assassins. Utilizing Lazarus Pits to maintain immortality, Ra's seeks to cleanse humanity to restore balance. 🟢🗡️</p>
+        <button onclick="alert('LEVEL 10 SECURITY CLEARANCE REQUIRED')">VIEW DOSSIER</button>
+      </div>
+
+      <!-- 5. Poison Ivy -->
+      <div style="background-color: #14532d;">
+        <h1>🌿 ℙ𝕠𝕚𝕤𝕠𝕟 𝕀𝕧𝕪 🌿</h1>
+        <p>Dr. Pamela Isley is an eco-terrorist capable of controlling plant life and manufacturing lethal pheromones and toxins to protect mother nature at all costs. 🥀🍃</p>
+        <button onclick="alert('LEVEL 10 SECURITY CLEARANCE REQUIRED')">VIEW DOSSIER</button>
+      </div>
+
+      <!-- 4. The Penguin -->
+      <div style="background-color: #0f172a;">
+        <h1>🐧 𝕋𝕙𝕖 ℙ𝕖𝕟𝕘𝕦𝕚𝕟 🐧</h1>
+        <p>Oswald Cobblepot operates under the guise of a legitimate businessman running the Iceberg Lounge. Beneath lies a ruthless mob boss controlling Gotham's underworld. 🎩🍸</p>
+        <button onclick="alert('LEVEL 10 SECURITY CLEARANCE REQUIRED')">VIEW DOSSIER</button>
+      </div>
+
+      <!-- 3. The Riddler -->
+      <div style="background-color: #064e3b;">
+        <h1>❓ 𝕋𝕙𝕖 ℝ𝕚𝕕𝕕𝕝𝕖𝕣 ❓</h1>
+        <p>Edward Nygma is an obsessive-compulsive genius who leaves complex riddles and deadly traps at crime scenes to prove his intellectual superiority over Batman. 🧩📜</p>
+        <button onclick="alert('LEVEL 10 SECURITY CLEARANCE REQUIRED')">VIEW DOSSIER</button>
+      </div>
+
+      <!-- 2. Bane -->
+      <div style="background-color: #1e293b;">
+        <h1>💪🏼 𝔹𝕒𝕟𝕖 💪🏼</h1>
+        <p>Born and raised in Peña Duro, Bane possesses exceptional strategic intellect combined with superhuman physical strength powered by Venom. The man who broke the Bat. 🧪💥</p>
+        <button onclick="alert('LEVEL 10 SECURITY CLEARANCE REQUIRED')">VIEW DOSSIER</button>
+      </div>
+
+      <!-- 1. The Joker (Top Most - Loads First!) -->
+      <div style="background-color: #4a154b;">
+        <h1>🤡 𝕿𝖍𝖊 𝕵𝖔𝖐𝖊𝖗 🤡</h1>
+        <p>The Clown Prince of Crime. Pure agent of chaos with zero regard for human life. Driven by an unhealthy obsession to prove that one bad day can turn the sanest man into a lunatic just like him. 🃏💜</p>
+        <button onclick="alert('LEVEL 10 SECURITY CLEARANCE REQUIRED')">VIEW DOSSIER</button>
+      </div>
+
+    </div>
+
+    <!-- RIGHT IMAGE SLIDE (Wallpapers) -->
+    <div class="right-slide">
+      <div style="background-image: url('joker.jpg');"></div>
+      <div style="background-image: url('bean.jpg');"></div>
+      <div style="background-image: url('riddler.jpg');"></div>
+      <div style="background-image: url('peng.jpg');"></div>
+      <div style="background-image: url('ivy.jpg');"></div>
+      <div style="background-image: url('ghul.jpg');"></div>
+      <div style="background-image: url('https://wallpaperaccess.com/full/1386900.jpg');"></div>
+      <div style="background-image: url('crow.jpg');"></div>
+      <div style="background-image: url('quinn.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION BUTTONS -->
+  <div class="action-buttons">
+    <button class="down-button"><i class="fas fa-arrow-down"></i></button>
+    <button class="up-button"><i class="fas fa-arrow-up"></i></button>
+  </div>
+
+  <!-- EMBEDDED JAVASCRIPT ENGINE -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sliderContainer = document.querySelector('.slider-container');
+      const slideRight = document.querySelector('.right-slide');
+      const slideLeft = document.querySelector('.left-slide');
+      const upButton = document.querySelector('.up-button');
+      const downButton = document.querySelector('.down-button');
+      const slidesLength = slideRight.querySelectorAll('div').length;
+
+      let activeSlideIndex = 0;
+      let isScrolling = false;
+
+      // Invert left slide position for reverse sync
+      slideLeft.style.top = `-${(slidesLength - 1) * 100}vh`;
+
+      const changeSlide = (direction) => {
+        const sliderHeight = sliderContainer.clientHeight;
+        if (direction === 'up') {
+          activeSlideIndex++;
+          if (activeSlideIndex > slidesLength - 1) activeSlideIndex = 0;
+        } else if (direction === 'down') {
+          activeSlideIndex--;
+          if (activeSlideIndex < 0) activeSlideIndex = slidesLength - 1;
+        }
+
+        slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`;
+        slideLeft.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`;
+      };
+
+      upButton.addEventListener('click', () => changeSlide('up'));
+      downButton.addEventListener('click', () => changeSlide('down'));
+
+      // Smooth mouse wheel scroll
+      window.addEventListener('wheel', (e) => {
+        if (isScrolling) return;
+        isScrolling = true;
+
+        if (e.deltaY > 0) {
+          changeSlide('up');
+        } else {
+          changeSlide('down');
+        }
+
+        setTimeout(() => { isScrolling = false; }, 850);
+      }, { passive: true });
+    });
+  </script>
+</body>
+</html>

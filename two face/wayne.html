@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BRUCE WAYNE | WAYNE ENTERPRISES ARCHIVES</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Shared External Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Cyber Grid & Particles -->
+  <div class="bg-grid"></div>
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+     <div class="logo-icon">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M12,6 C13.5,3.5 16,3 18,4.5 C20,6 22,9 22,12 C19.5,10.5 17.5,12 16,14 C15,12.5 13.5,11.5 12,11.5 C10.5,11.5 9,12.5 8,14 C6.5,12 4.5,10.5 2,12 C2,9 4,6 6,4.5 C8,3 10.5,3.5 12,6 Z" />
+        </svg>
+      </div>
+      <span class="logo-text">WAYNE <span>ENT</span></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="batcave.html">Bat Cave</a>
+      <a href="supes.html">Heroes</a>
+      <a href="villen.html" class="active">Gunde</a>
+      <a href="vehicles.html">Vehicles</a>
+      <a href="timeline.html">Chronicles</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="index.html#contact" class="cta-btn desktop-only">ACCESS BATCOMPUTER</a>
+    </div>
+  </header>
+
+  <!-- MAIN PAGE CONTENT -->
+  <section class="section" style="padding-top: 140px;">
+    <div class="container">
+      
+      <!-- Profile Header -->
+      <div class="section-header text-center">
+        <span class="section-tag">EXECUTIVE ARCHIVES</span>
+        <h2>BRUCE WAYNE & ENTERPRISES</h2>
+        <p>CEO & Chairman of Wayne Enterprises | Philanthropist & Visionary of Gotham</p>
+      </div>
+
+      <!-- Overview Cards -->
+      <div class="grid grid-2" style="margin-bottom: 60px;">
+        <div class="tech-card">
+          <div class="card-icon"><i class="fa-solid fa-building-columns"></i></div>
+          <h3>Wayne Enterprises</h3>
+          <p>Global conglomerate specializing in Defense Systems, Biotech, Advanced Aerospace, and Energy Solutions.</p>
+        </div>
+        <div class="tech-card">
+          <div class="card-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+          <h3>The Wayne Foundation</h3>
+          <p>Funding Gotham’s healthcare, orphanages, public infrastructure, and scientific research initiatives.</p>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- CATEGORY 1: CORPORATE & INDUSTRIAL FACILITIES -->
+      <!-- ============================================== -->
+      <div class="section-header text-center" style="margin-top: 80px; margin-bottom: 40px;">
+        <span class="section-tag">INFRASTRUCTURE</span>
+        <h2>CORPORATE & INDUSTRIAL FACILITIES</h2>
+        <p>World-class architecture powering Gotham’s economy and security.</p>
+      </div>
+
+      <div class="grid grid-3" style="margin-bottom: 60px;">
+        <div class="identity-card" style="height: 380px;">
+          <div class="card-bg" style="background-image: url('https://wallpaperaccess.com/full/6708197.jpg'); opacity: 0.7;"></div>
+          <div class="card-content">
+            <h3>WAYNE TOWER</h3>
+            <p>Global Headquarters located in Gotham Financial District.</p>
+          </div>
+        </div>
+
+        <div class="identity-card" style="height: 380px;">
+          <div class="card-bg" style="background-image: url('https://wallpaperaccess.com/full/6708240.jpg'); opacity: 0.7;"></div>
+          <div class="card-content">
+            <h3>WAYNE MANOR</h3>
+            <p>Historical ancestral estate and private executive residence.</p>
+          </div>
+        </div>
+
+        <div class="identity-card" style="height: 380px;">
+          <div class="card-bg" style="background-image: url('https://wallpaperaccess.com/full/1453964.png'); opacity: 0.7;"></div>
+          <div class="card-content">
+            <h3>AUTOMATED FACTORIES</h3>
+            <p>Heavy industry and precision manufacturing plant.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- CATEGORY 2: R&D LABS & ADVANCED TECHNOLOGY     -->
+      <!-- ============================================== -->
+      <div class="section-header text-center" style="margin-top: 80px; margin-bottom: 40px;">
+        <span class="section-tag">APPLIED SCIENCES</span>
+        <h2>RESEARCH & DEFENSE SECTORS</h2>
+        <p>Top-secret technology development under Wayne Enterprises Applied Sciences.</p>
+      </div>
+
+      <div class="grid grid-3" style="margin-bottom: 60px;">
+        <div class="identity-card" style="height: 380px;">
+          <div class="card-bg" style="background-image: url('https://wallpaperaccess.com/full/3065720.jpg'); opacity: 0.7;"></div>
+          <div class="card-content">
+            <h3>CYBER R&D LABS</h3>
+            <p>Neural computing and quantum decryption research center.</p>
+          </div>
+        </div>
+
+        <div class="identity-card" style="height: 380px;">
+          <div class="card-bg" style="background-image: url('https://wallpaperaccess.com/full/22799421.jpg'); opacity: 0.7;"></div>
+          <div class="card-content">
+            <h3>AEROSPACE HANGAR</h3>
+            <p>Stealth aviation testing and satellite array hub.</p>
+          </div>
+        </div>
+
+        <div class="identity-card" style="height: 380px;">
+          <div class="card-bg" style="background-image: url('https://wallpaperaccess.com/full/2624155.jpg'); opacity: 0.7;"></div>
+          <div class="card-content">
+            <h3>BIOTECH CENTER</h3>
+            <p>Medical innovations and tactical bio-armor research.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- CATEGORY 3: PRIVATE VEHICLES & SECURITY FLEET  -->
+      <!-- ============================================== -->
+      <div class="section-header text-center" style="margin-top: 80px; margin-bottom: 40px;">
+        <span class="section-tag">MOBILE ARSENAL</span>
+        <h2>EXECUTIVE FLEET & SECURITY</h2>
+        <p>High-performance logistics, private transport, and tactical armaments.</p>
+      </div>
+
+      <div class="grid grid-3" style="margin-bottom: 80px;">
+        <div class="identity-card" style="height: 380px;">
+          <div class="card-bg" style="background-image: url('https://wallpaperaccess.com/full/3521975.jpg'); opacity: 0.7;"></div>
+          <div class="card-content">
+            <h3>EXECUTIVE FLEET</h3>
+            <p>Custom armored luxury transport vehicles.</p>
+          </div>
+        </div>
+
+        <div class="identity-card" style="height: 380px;">
+          <div class="card-bg" style="background-image: url('https://wallpaperaccess.com/full/493348.jpg'); opacity: 0.7;"></div>
+          <div class="card-content">
+            <h3>GOTHAM SURVEILLANCE</h3>
+            <p>City-wide satellite array and Bat-Signal relay link.</p>
+          </div>
+        </div>
+
+        <div class="identity-card" style="height: 380px;">
+          <div class="card-bg" style="background-image: url('https://wallpaperaccess.com/full/6708079.png'); opacity: 0.7;"></div>
+          <div class="card-content">
+            <h3>TACTICAL MOTORWORKS</h3>
+            <p>Prototype high-speed pursuit vehicles and urban stealth bikes.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Financial & Executive Stats -->
+      <div class="contact-box" style="max-width: 100%; text-align: left; margin-bottom: 60px;">
+        <span class="section-tag">CONFIDENTIAL DATA</span>
+        <h3 style="font-family: var(--font-title); color: var(--accent-gold); margin-bottom: 20px;">EXECUTIVE DOSSIER</h3>
+        <ul class="stats-list" style="font-size: 1.1rem; line-height: 2;">
+          <li><span>Full Name:</span> Bruce Thomas Wayne</li>
+          <li><span>Status:</span> Active CEO & Controlling Shareholder</li>
+          <li><span>Net Worth:</span> $11.6 Billion USD</li>
+          <li><span>Headquarters:</span> Wayne Tower, Financial District, Gotham City</li>
+          <li><span>Security Clearance:</span> Level 10 (Restricted Alpha Access)</li>
+        </ul>
+      </div>
+
+      <!-- Back Action -->
+      <div class="text-center">
+        <a href="index.html" class="btn btn-secondary">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Return to Gotham Main Portal</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+ <!-- =========================================
+     GLOBAL CONNECT SECTION & FOOTER (Modular)
+========================================= -->
+<style>
+  .global-connect-wrapper {
+    width: 100%;
+    background: #050505;
+    border-top: 1px solid rgba(229, 184, 11, 0.3);
+    padding: 50px 20px 25px;
+    text-align: center;
+    position: relative;
+    z-index: 999;
+    font-family: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .global-connect-wrapper h3 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 800;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .global-connect-wrapper p {
+    color: #a0a5b5;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+  }
+
+  .global-social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto 35px;
+  }
+
+  .global-social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 1px solid rgba(229, 184, 11, 0.3);
+    background: #0d0e12;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .global-social-btn.github:hover { border-color: #ffffff; transform: translateY(-3px); box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); }
+  .global-social-btn.email { border-color: #e5b80b; color: #e5b80b; }
+  .global-social-btn.email:hover { background: #e5b80b; color: #000000; transform: translateY(-3px); box-shadow: 0 0 15px rgba(229, 184, 11, 0.6); }
+  .global-social-btn.youtube { border-color: #ff0000; color: #ff0000; }
+  .global-social-btn.youtube:hover { background: #ff0000; color: #ffffff; transform: translateY(-3px); box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); }
+  .global-social-btn.instagram { border-color: #e84393; color: #e84393; }
+  .global-social-btn.instagram:hover { background: #e84393; color: #ffffff; transform: translateY(-3px); box-shadow: 0 0 15px rgba(232, 67, 147, 0.6); }
+  .global-social-btn.linkedin { border-color: #0077b5; color: #0077b5; }
+  .global-social-btn.linkedin:hover { background: #0077b5; color: #ffffff; transform: translateY(-3px); box-shadow: 0 0 15px rgba(0, 119, 181, 0.6); }
+
+  .global-footer-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: #a0a5b5;
+  }
+
+  .global-footer-bar span {
+    color: #e5b80b;
+    font-weight: 700;
+  }
+</style>
+
+<div class="global-connect-wrapper" id="connect">
+  <h3>Let's Connect</h3>
+  <p>Have an idea or just want to explore my work? Feel free to connect with me.</p>
+
+  <div class="global-social-buttons">
+    <a href="https://github.com/" target="_blank" class="global-social-btn github"><i class="fa-brands fa-github"></i> GitHub</a>
+    <a href="mailto:hi@mridulandrohan.com" class="global-social-btn email"><i class="fa-regular fa-envelope"></i> Email Me</a>
+    <a href="https://youtube.com/" target="_blank" class="global-social-btn youtube"><i class="fa-brands fa-youtube"></i> YouTube</a>
+    <a href="https://www.instagram.com/mridulandrohan/?hl=en" target="_blank" class="global-social-btn instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
+    <a href="https://www.linkedin.com/company/81645502" target="_blank" class="global-social-btn linkedin"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+  </div>
+
+ <div class="global-footer-bar">
+  <p>Designed and Developed by <span style="font-weight: 900; font-size: 1.2rem; color: #e5b80b; display: inline-block; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.color='#ffd700'; this.style.textShadow='0 0 12px rgba(255, 215, 0, 0.8)'; this.style.transform='scale(1.2)';" onmouseout="this.style.color='#e5b80b'; this.style.textShadow='none'; this.style.transform='scale(1)';"> ϻ<sub style="font-size: 0.65em; position: relative; bottom: -0.1em; left: -0.05em;">𝔯 </sub>mridulandrohan</span> <i class="fa-solid fa-heart" style="color: #e84393;"></i></p>
+  <p style="margin-top: 5px;">&copy; 2026 All Rights Reserved.</p>
+</div>
+
+
+  <!-- Shared External Script -->
+  <script src="script.js"></script>
+</body>
+</html>
